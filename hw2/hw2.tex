@@ -1,0 +1,90 @@
+
+% ===============================================
+% MATH 412: Graph Theory         Fall 2017
+% hw_revised.tex
+% Template for revised homework submission
+% ===============================================
+%         READ THE FOLLOWING CAREFULLY!!!
+% ===============================================
+% When you produce a PDF version of this document
+% to turn in, change the filename to hwX-name.pdf
+% replacing X with the homework assignment number
+% and name with your last name.
+% ===============================================
+
+
+% -----------------------------------------------
+% The preamble that follows can be ignored. Go on
+% down to the section that says "START HERE" 
+% -----------------------------------------------
+
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb, enumitem}
+
+\newcommand{\R}{\mathbb{R}}  
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\newenvironment{claim}[2][Claim]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
+
+\begin{document}
+\title{Homework 2} % Change homework number
+\author{Cameron Dart\\ Graph Theory} % Replace "Author's Name" with your name
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{claim}{1}
+	A graph is bipartite iff every subgraph $H$ of $G$ has an independent set of size at least $\frac{|V(H)|}{2}$
+\end{claim}
+
+\begin{proof}
+	$\implies )$ Suppose $G$ is a bipartite graph.  So $G$ must not contain any odd cycles. Since $H$ is an arbitrary subgraph, we cannot introduce any cycles by removing any edges or vertices from a graph that does not initially contain any. Hence, any subgraph $H$ must also be bipartite. Hence, $H$ can be split into two independent sets. It follows that one of the independent sets must be at least $\frac{|V(H)|}{2}$.\\ \\
+	$\impliedby)$ Suppose every subgraph $H$ of $G$ has an independent set of size at least$\frac{|V(H)|}{2}$.
+	\end{proof}
+
+Let $n \geq 4$ and $G$ be an $n-$vertex simple connected graph not containing $4-$vertex path $P_4$ as an induced subgraph 
+\begin{claim}{2.a}
+	If $G$ is not complete bipartite, then $G$ contains the cycle $C_3$
+\end{claim}
+
+\begin{proof}
+	content...
+\end{proof}
+
+\begin{claim}{2.b}
+	If $G$ has no vertex adjacent to all other vertices, then $G$ has the cycle $C_4$ as an induced subgraph
+\end{claim}
+\begin{proof}
+	content..
+\end{proof}
+
+\begin{claim}{3}
+	If $G$ is a $5-$regular graph, then $E(G)$ cannot be partitioned in paths of length at least $7$.
+\end{claim}
+\begin{proof}
+	Suppose $G$ is a 5-regular graph. Assume $E(G)$ can be partitioned into paths of length at least $7$ and seek contradiction. Consider the degree sum formula \[ \sum_{v \in V(G)} d_G(v) = 2 |E(G)|\]
+	$V(G)$ is even for $G$ to be a simple $5-$regular graph. Otherwise, $|E(G)| = \frac{5(2k + 1)}{2} \in \N$ for some integer $k$. Clearly, this is false. So $V(G)$ must be even. \\ \\
+	Since $V(G) = 2k$ we can apply \textbf{Theorem 1.2.33} and the minimum trails that decompose $G$ is the $\max\{1,k\}$.\\ \\
+	Assume $V(G) = 2k$ for an integer $k$ such that $k \geq 3$. If $k$ was less than $2$, $G$ would not be simple. By \textbf{Theorem 1.2.26}, $G$ cannot be Eulerian so there is not a single path that decomposes $G$. Hence, the minimum number of trails that decompose $G$ cannot be $1$. Suppose the minimum number of trails that decomposes $G$ is $k$. If this is true, then our $5k$ edges must be decomposed into $k$ trails. Which gives us trails of length $5 < 7$. So we reach a contradiction. Thus, $E(G)$ cannot be partitioned into paths of length at least $7$.   
+\end{proof}
+\end{document}
