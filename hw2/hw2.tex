@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_US
 
 % ===============================================
 % MATH 412: Graph Theory         Fall 2017
@@ -58,33 +59,46 @@
 \end{claim}
 
 \begin{proof}
-	$\implies )$ Suppose $G$ is a bipartite graph.  So $G$ must not contain any odd cycles. Since $H$ is an arbitrary subgraph, we cannot introduce any cycles by removing any edges or vertices from a graph that does not initially contain any. Hence, any subgraph $H$ must also be bipartite. Hence, $H$ can be split into two independent sets. It follows that one of the independent sets must be at least $\frac{|V(H)|}{2}$.\\ \\
-	$\impliedby)$ Suppose every subgraph $H$ of $G$ has an independent set of size at least$\frac{|V(H)|}{2}$.
+	$\implies $ Suppose $G$ is a bipartite graph. Then $G$ must not contain any odd cycles. We cannot introduce any cycles by removing any edges or vertices from a graph that does not initially contain any. Hence, any subgraph $H$ must also be bipartite and therefore split into two independent sets. It follows that one of the independent sets must be at least $\frac{|V(H)|}{2}$.\\ \\
+	$\impliedby$ Consider the contrapositive, if $G$ is not bipartite then there exists a subgraph $H$ of $G$ such that there is not an independent set of size at least $\frac{|V(H)|}{2}$. If $G$ is not bipartite then there exists an odd cycle. Suppose $H$ is the subgraph of $G$ that is $C_n$ for some odd integer $n$. $H$ does not have an independent set that is at least $\frac{|V(H)|}{2}$.
 	\end{proof}
 
-Let $n \geq 4$ and $G$ be an $n-$vertex simple connected graph not containing $4-$vertex path $P_4$ as an induced subgraph 
 \begin{claim}{2.a}
+	Let $n \geq 4$ and $G$ be an $n-$vertex simple connected graph not containing $4-$vertex path $P_4$ as an induced subgraph 
 	If $G$ is not complete bipartite, then $G$ contains the cycle $C_3$
 \end{claim}
 
 \begin{proof}
-	content...
+	Consider the contrapositive of our claim. If $G$ does not contain the cycle, then $G$ is complete bipartite. Since $G$ is connected and there are no $3$-cycles in $G$ there exists $u,v,w \in V(G)$ such that the subgraph $u,v,w$ is complete bipartite. Now consider $z \in V(G)$ that is connected to any of $u,v,w$. There must not be a 3-cycle between any three vertices of $u,v,w,z$. If $z$ is connected to one of our independent sets in $u,v,w$ then it must be connected to all elements in that independent set. Otherwise, we have an induced subgraph of $P_4$ which contradicts our original assumption. Hence, $G$ is complete bipartite.
 \end{proof}
 
 \begin{claim}{2.b}
 	If $G$ has no vertex adjacent to all other vertices, then $G$ has the cycle $C_4$ as an induced subgraph
 \end{claim}
 \begin{proof}
-	content..
+	Suppose $G$ has no vertex that is adjacent to all others vertices. Let $u  = \Delta(G)$, $v$ and $w$ be any two vertices adjacent to $u$, and $z$ is a vertex not adjacent to $z$. In order for our graph to be connected, $z$ must connect to $v$ or $w$. 
+	However, if it only connects to one, then we have an induced subgraph of $P_4$. So it must connect to both. Hence, $u,v,w,z$ contains a 4-cycle.
 \end{proof}
 
 \begin{claim}{3}
 	If $G$ is a $5-$regular graph, then $E(G)$ cannot be partitioned in paths of length at least $7$.
 \end{claim}
 \begin{proof}
-	Suppose $G$ is a 5-regular graph. Assume $E(G)$ can be partitioned into paths of length at least $7$ and seek contradiction. Consider the degree sum formula \[ \sum_{v \in V(G)} d_G(v) = 2 |E(G)|\]
-	$V(G)$ is even for $G$ to be a simple $5-$regular graph. Otherwise, $|E(G)| = \frac{5(2k + 1)}{2} \in \N$ for some integer $k$. Clearly, this is false. So $V(G)$ must be even. \\ \\
-	Since $V(G) = 2k$ we can apply \textbf{Theorem 1.2.33} and the minimum trails that decompose $G$ is the $\max\{1,k\}$.\\ \\
-	Assume $V(G) = 2k$ for an integer $k$ such that $k \geq 3$. If $k$ was less than $2$, $G$ would not be simple. By \textbf{Theorem 1.2.26}, $G$ cannot be Eulerian so there is not a single path that decomposes $G$. Hence, the minimum number of trails that decompose $G$ cannot be $1$. Suppose the minimum number of trails that decomposes $G$ is $k$. If this is true, then our $5k$ edges must be decomposed into $k$ trails. Which gives us trails of length $5 < 7$. So we reach a contradiction. Thus, $E(G)$ cannot be partitioned into paths of length at least $7$.   
+ $G$ Suppose $G$ is a $n$ vertex 5-regular graph. Assume that $E(G)$ can be partitioned into paths of length at least $7$. $G$ has $\frac{5n}{2}$ edges. Note, this means $n$ must be even. Since paths must start and end at different vertices, we need $\frac{n}{2}$ paths to cover $G$. So if our paths need to be at least length $7$ we need a minimum $\frac{7n}{2}$ edges. Since $\frac{7n}{2} > \frac{5n}{2}$ we reach out sought contradiction.
+\end{proof}
+
+\begin{claim}{4}
+	Every cycle of length $2r$ in the hypercube $Q_n$ is contained in a subcube of dimension at most $r$
+\end{claim}
+\begin{proof}
+	Consider a hypercube $Q_n$ and a cycle of length $2r$. In a hypercube, $u,v$ are adjacent if their coordinates differ by 1. So if two vertices share a common neighbor, their coordinates differ by at most $2$, and so on. So a path of length $r$ differs in at most $r$ coordinates. Hence, our path of length $r$ spans at most $r$ dimensions and our cycle is contained in some subcube of dimension at most $r$.
+\end{proof}
+Additionally, yes a cycle of length 8 can be contained in a subcube of dimension $2$ and
+a cycle of length $6$ cannot be contained in $2$ dimensions.
+\begin{claim}{5}
+	$G$ has $6$ equivalence classes.
+\end{claim}
+\begin{proof}
+Initially there are $4!$ permutations of our $4$ paths, however, we don't distinguish between the starting vertex $x,y$ and the reverse cycles are equivalent so we are overcounting by a factor of $4$. Hence, there are $6$ equivalence classes.
 \end{proof}
 \end{document}
