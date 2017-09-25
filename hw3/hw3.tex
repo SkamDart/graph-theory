@@ -1,0 +1,121 @@
+% !TeX spellcheck = en_US
+
+% ===============================================
+% MATH 412: Graph Theory         Fall 2017
+% hw_revised.tex
+% Template for revised homework submission
+% ===============================================
+%         READ THE FOLLOWING CAREFULLY!!!
+% ===============================================
+% When you produce a PDF version of this document
+% to turn in, change the filename to hwX-name.pdf
+% replacing X with the homework assignment number
+% and name with your last name.
+% ===============================================
+
+
+% -----------------------------------------------
+% The preamble that follows can be ignored. Go on
+% down to the section that says "START HERE" 
+% -----------------------------------------------
+
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb, enumitem, mathtools}
+
+\newcommand{\R}{\mathbb{R}}  
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}[2]{K_{\floor*{#1} \ceil*{#2}}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\newenvironment{claim}[2][Claim]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
+
+\begin{document}
+\title{Homework 3} 
+\author{Cameron Dart\\ Graph Theory} 
+
+\maketitle
+
+\noindent \textbf{Problem 1}
+\begin{claim}{}
+	Suppose $n \geq 1$. Every $n-$vertex triangle-free simple graph with the max number of edges is isomorphic to $\K{\frac{n}{2}}{\frac{n}{2}}$ 
+\end{claim}
+\begin{proof}
+	Proof by inducting on the number of vertices in our graph $G$.
+	First, let $n = 1$.  Clearly, the singleton graph is isomorphic to $\K{0}{1}$\\
+	Now assume for all integers $n$ such that $1 \leq n \leq k$ that every $n$ vertex triangle-free simple graph with maximal edges is isomorphic to $\K{\frac{n}{2}}{\frac{n}{2}}$.\\
+	Consider $n = k$. Choose two $u,v \in V(G)$ such that they are members of separate independent sets of $G$. By our inductive hypothesis we know that  $G$ is isomorphic to $\K{\frac{n}{2}}{\frac{n}{2}}$ so these two independent sets must exists. Suppose we add another vertex $w$ to $G$. $G$ must remain triangle free so we cannot connect it to both $u,v$. Otherwise, we would form a triangle. So there are two cases to consider, namely the parity of $n$.\\ \\
+	If $n$ is even, then it does not matter which independent set $w$ belongs to. \\ \\
+	If $n$ is odd, we must add $w$ to the smaller independent set and connect it to all members of the other.
+\end{proof}
+
+\noindent \textbf{Problem 2}
+\begin{claim}{}
+	content...
+\end{claim}
+\begin{proof}
+\end{proof}
+
+\noindent \textbf{Problem 3}
+\begin{claim}{}
+	Let $n$ be a positive integer and $d = d_1 d_2 .... d_n$ be a nonincreasing list of nonnegative integers such that 
+	\begin{enumerate}[label=\alph*)]
+		\item $ d_1 + d_2 + ... + d_n $ is even
+		\item $d_1 \leq n - 1$
+		\item $d_1 - d_n \leq 1$
+	\end{enumerate} 
+\end{claim}
+\begin{proof}
+	We will show by induction on $n$ the length of our nonincreasing list that $d$ is graphic.
+	First, let $n = 2$. Then  $d = 0,0$ or $ d = 1,1$ which are clearly graphic.\\\\
+	Assume for all $2 \leq n \leq k$ that $d = d_1 d_2 ... d_n$ is graphic if the conditions above hold.\\\\
+	Let $n = k + 1$. It follows $d^{k + 1} = d_1 d_2 ... d_k d_{k + 1}$. 
+	Apply the Havel-Hakimi algorithm once to $d$ and $d^{k+1}$ is graphic iff $d^k$ is graphic. We know $d^k$ is graphic by our inductive hypothesis. Hence $d^{k + 1}$ is graphic. Thus, any nonincreasing list $d$ with the properties above is graphic.
+\end{proof}
+
+\noindent \textbf{Problem 4}
+\begin{claim}{}
+	Let $G$ be a digraph such that 
+	\begin{enumerate}[label=\alph*)]
+		\item $d^+(v) = d^-(v)$ for all $v \in V(G) - \{ x,y,z\}$ 
+		\item $d^+(x) - d^-(x) = d^+(y) - d^-(y) = 1$
+		\item $d^+(z) - d^-(z) = -2$
+	\end{enumerate}
+
+\end{claim}
+\begin{proof}
+	Let $H$ be the subgraph of $G$ described by condition $a$. Note, $H$ is Eulerian. \\ \\
+	Suppose first that $x \rightarrow z$ and $y \rightarrow z$. Certainly these two paths are edge disjoint. \\ \\
+	Now suppose, without the loss of generality, that $x \rightarrow z$ and $y \not \rightarrow z$. But there exists some $u \in V(H)$ such that $u \rightarrow z$. Since $H$ is Eulerian, there exists a path from $u$ to $y$. It follows that these paths are edge disjoint, since $z$ has two incoming edges and one is directly connected to $x$, the other from inside $H$.\\\\
+	Suppose $w,u \in V(H)$ such that $w \rightarrow z$ and $u \rightarrow z$. $H$ is Eulerian by our first claim. Hence, there are paths from $x,y$ to $z$. If these paths don't share any vertices, then they must be edge disjoint. However, if they do share paths, then the degree is at least two and we can choose unique edges. Hence, there are edge-disjoint paths from $x,y$ to $z$.
+\end{proof}
+
+\noindent \textbf{Problem 5}
+\begin{claim}{}
+	content...
+\end{claim}
+\begin{proof}
+\end{proof}
+
+\end{document}
