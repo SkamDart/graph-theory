@@ -77,16 +77,15 @@
 	First, let $G$ be a cycle of length $n$. Let $G' = G - v$ be the graph that deletes an arbitrary $v \in V(G)$. It is easy to see that $G'$ is a path of length $n - 1$ which is connected and acyclic. Therefore $G'$ is a tree.\\ \\
 	Now suppose that $G$ is $S_n$ and $s$ is the vertex of degree $n - 1$ in $S_n$. Choose our vertex set to be the independent set of size $n - 1$ contained in $S_n$. Let $G' = G - v$ where $v$ is in the independent set of $G$. $G'$ must be connected since every vertex in our independent set is still adjacent $s$. Assume there is a cycle in $G'$. $G'$ is bipartite so there cannot exist an odd cycle. If there was a cycle, it would be even and we would need to traverse two elements from our two independent sets, however, one of our independent sets contains just $s$.	Hence, we reach a contradiction and there cannot exist a cycle in $G'$. It follows that $G'$ is a tree because it is connected and acyclic.\\ \\
 	Assume there exists another graph $G$ with the properties above and seek contradiction. 
-	If a graph $G$ has $n-$vertices and $n$ edges, then the degree sum is equal to $2n$. So if there exist multiple vertices with degree greater than $2$, then there must be a vertices with degree $0$. Which is a contradiction because we can choose a vertex set that contains isolated vertices. And it is not connected therefore not a tree.
+	If a graph $G$ has $n$ vertices and $n$ edges, then the degree sum is equal to $2n$. So if there exist multiple vertices with degree greater than $2$, then there must be corresponding vertices with degree $0$. Which contradicts  o because we can choose a vertex set that contains isolated vertices. And it is not connected therefore not a tree.
 \end{proof}
 
 \noindent \textbf{Problem 4}
 \begin{claim}{}
-	For every $n \geq 2$ the minimum Wiener index of a $n-$vertex simple graph $G$ with $n$ edges is $2(n-1)^2 - 2$. \\
-	Max value of $D(G)$ for a $5-$vertex tree is $40$
+	For every $n \geq 2$ the minimum Wiener index of a $n-$vertex simple graph $G$ with $n$ edges is \\$2(n-1)^2 - 2$. The max value of $D(G)$ for a $5-$vertex tree is $40$
 \end{claim}
 \begin{proof}
-	The minimal Wiener index for $n-$vertex $n-1$ edge graph $G$ is a star. The wiener index of a star is $(n-1)^2$. Adding a single edge to this star graph, results in the minimal Wiener index for a graph with $n$ edges and $n$ vertices. Namely, there are $(n-1)^2 - 1$ edges.
+	The minimal Wiener index for $n-$vertex $n-1$ edge graph $G$ is a star. The wiener index of a star is $(n-1)^2$. Adding a single edge to this star graph creates exactly one cycle and has the minimal Wiener index for a graph with $n$ edges and $n$ vertices. Namely, there are $(n-1)^2 - 1$ edges. Since we shortened the distance between the two vertices in our cycle that aren't the center of the star.\\
 	We have a maximal wiener index for a $n-$vertex graph when we consider $P_n$. Hence, $P_5$ has a maximal wiener index of $2(4) + 4(3) + 6(2) + 8(1) = 40$ by inspection.
 \end{proof}
 
