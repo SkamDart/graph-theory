@@ -83,16 +83,15 @@ Suppose $Q^*$ is the matrix resulting from deleting the $1st$ row and $1st$ colu
 \end{bmatrix}
 \]
 \end{proof}
-By the \textbf{Matrix Tree Theorem} $\tau(K_{2,4}) = (-1)^(2) \det(Q^*)$
-$\det(Q^*) = 32$
-Hence, $\tau(K_{2, 4}) = \det(Q^*) = 32$. So $K_{2,4}$ has $32$ spanning trees. \\
-However, there are only two up to isomorphism. Specifically, 
-\\\noindent \textbf{Problem 3}
+By the \textbf{Matrix Tree Theorem} $\tau(K_{2,4}) = (-1)^2 \det(Q^*) = 32$. Hence, $K_{2,4}$ has $32$ spanning trees. \\
+Up to isomorphism there are two spanning trees of $K_{2,4}$. Specifically, we consider the partite set of size $2$ in $K_{2,4}$. Let $u,v$ be the vertices in the set previously described. Since our spanning tree must connect all vertices, the degrees of $u,v$ cannot be $0$. Suppose $d(u) = 2$. Then $d(v)$ must be $3$ in order for our graph to be connected. Now suppose that $d(u) = 1$ this implies that $d(v) = 4$. If the vertex degrees for either case were switched, we would have isomorphic graphs. As a result, these are the only two isomorphic spanning trees of $G$. 
+\newpage
+\noindent \textbf{Problem 3}
 \begin{claim}{}
 Let $G = (X,Y ; E)$ be a bipartite simple graph with partite sets $X$ and $Y$, where $|X| = |Y| = n$. Then $\alpha'(G) \geq \min{, 2 \delta(G)}$ 
 \end{claim}
 \begin{proof}
-
+Assume $\alpha'(G) < \min(n, 2 \delta(G))$ and seek contradiction. Immediately we can see that if $G$ has any isolated vertices that $\delta(G) = 0$ and we reach a contradiction. Now consider a $G$ with no isolated vertices. Hence, $\delta(G) \geq 1 \implies 2\delta(G) \geq 2$. If we have no isolated verices, then $\alpha'(G) = \beta(G)$, $\alpha'(G) + \beta'(G) = 2n$, and $\alpha(G) + \beta(G) = 2n$.
 \end{proof}
 
 \noindent \textbf{Problem 4}
