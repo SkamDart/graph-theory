@@ -1,0 +1,114 @@
+% !TeX spellcheck = en_US
+
+% ===============================================
+% MATH 412: Graph Theory         Fall 2017
+% hw_revised.tex
+
+
+
+
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb, enumitem, mathtools}
+
+\newcommand{\R}{\mathbb{R}}  
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}[2]{K_{\floor*{#1} \ceil*{#2}}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\newenvironment{claim}[2][Claim]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
+
+\begin{document}
+\title{Homework 4} 
+\author{Cameron Dart\\ Graph Theory} 
+
+\maketitle
+
+\noindent \textbf{Problem 1}
+\begin{claim}{}
+	In the graph provided, we can get minimum spanning trees from Kruskal's and Prim's Algorithm.
+\end{claim}
+\begin{proof}
+Let $xy$ denote the edge connecting the two vertices $x$ and $y$. In Prim's, we always keep a connected component, starting with a single vertex and adding the next adjacent vertex with the smallest edge weight. Consider Prim's algorithm startin from vertex $a$.
+\\\\\textbf{Prim's Algorithm:} ae, ef, fb, bc, cg, gh, hd, dp, pl, lk, ko, on, nj, ji, im
+\\\\ In Kruskal's, we do not keep a connected componented. Instead, at each stage, we look globally at the smallest edge and take it if it does not create a cycle in the current forest.
+\\\\\textbf{Kruskal's Algorithm:} ae, bf, cg, dh, ad, am, mp, ef, pl, bc, ij, kl, ko, jn\\
+\end{proof}
+
+\noindent \textbf{Problem 2}
+\begin{claim}{}
+	$\tau(K_{2,4}) = $ and $K_{2,4}$ has $2$ nonisomorphic spanning trees
+\end{claim}
+\begin{proof}
+Let $Q$ be the Laplacian Matrix for $K_{2,4}$ 
+\[
+\begin{bmatrix}
+	4  &  0  & -1 & -1 & -1 & -1 \\
+	0  &  4  & -1 & -1 & -1 & -1 \\
+	-1 & -1  &  2 &  0 &  0 &  0 \\
+	-1 & -1  &  0 &  2 &  0 &  0 \\
+	-1 & -1  &  0 &  0 &  2 &  0 \\
+	-1 & -1  &  0 &  0 &  0 &  2 
+\end{bmatrix}
+\]
+Suppose $Q^*$ is the matrix resulting from deleting the $1st$ row and $1st$ column of $Q$
+\[
+\begin{bmatrix}
+ 4  & -1 & -1 & -1 & -1 \\
+-1  &  2 &  0 &  0 &  0 \\
+-1  &  0 &  2 &  0 &  0 \\
+-1  &  0 &  0 &  2 &  0 \\
+-1  &  0 &  0 &  0 &  2 
+\end{bmatrix}
+\]
+\end{proof}
+By the \textbf{Matrix Tree Theorem} $\tau(K_{2,4}) = (-1)^(2) \det(Q^*)$
+$\det(Q^*) = 32$
+Hence, $\tau(K_{2, 4}) = \det(Q^*) = 32$. So $K_{2,4}$ has $32$ spanning trees. \\
+However, there are only two up to isomorphism. Specifically, 
+\\\noindent \textbf{Problem 3}
+\begin{claim}{}
+Let $G = (X,Y ; E)$ be a bipartite simple graph with partite sets $X$ and $Y$, where $|X| = |Y| = n$. Then $\alpha'(G) \geq \min{, 2 \delta(G)}$ 
+\end{claim}
+\begin{proof}
+
+\end{proof}
+
+\noindent \textbf{Problem 4}
+\begin{claim}{}
+If $A$ is a $0, 1$ matrix so that a \textit{line} in A is a row or column and two $1$'s in $A$ are independent if no line contains both of them. Then the max number of pairwise independent $1's$ is equal to the minimum number of lines covering all $1's$ in $A$.
+\end{claim}
+\begin{proof}
+
+\end{proof}
+
+\noindent \textbf{Problem 5}
+\begin{claim}{}
+The graph in $3.1.28$ does not have a perfect matching.
+\end{claim}
+\begin{proof}
+By Tutte's theorem if there exists a $S \subseteq V(G)$ so that $o(G - S) > |S|$ then $G$ does not contain a perfect matching. Consider the attached drawing of the graph that fixes a $S$ such that the conditions above hold. As a result, $G$ does not contain a perfect matching.
+\end{proof}
+
+\end{document}
