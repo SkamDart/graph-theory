@@ -91,7 +91,16 @@ Up to isomorphism there are two spanning trees of $K_{2,4}$. Specifically, we co
 Let $G = (X,Y ; E)$ be a bipartite simple graph with partite sets $X$ and $Y$, where $|X| = |Y| = n$. Then $\alpha'(G) \geq \min{, 2 \delta(G)}$ 
 \end{claim}
 \begin{proof}
-Assume $\alpha'(G) < \min(n, 2 \delta(G))$ and seek contradiction. Immediately we can see that if $G$ has any isolated vertices that $\delta(G) = 0$ and we reach a contradiction. Now consider a $G$ with no isolated vertices. Hence, $\delta(G) \geq 1 \implies 2\delta(G) \geq 2$. If we have no isolated verices, then $\alpha'(G) = \beta(G)$, $\alpha'(G) + \beta'(G) = 2n$, and $\alpha(G) + \beta(G) = 2n$.
+Assume $\alpha'(G) < \min(n, 2 \delta(G))$ and seek contradiction. Immediately we can see that if $G$ has any isolated vertices that $\delta(G) = 0$ and we reach a contradiction. Now consider a $G$ with no isolated vertices. Hence, $\delta(G) \geq 1 \implies 2\delta(G) \geq 2$. If we have no isolated verices, then $\alpha'(G) = \beta(G)$, $\beta'(G) = \alpha(G)$, and $\alpha'(G) + \beta'(G) = 2n$. 
+
+\begin{align*}
+	\alpha'(G) < \min (n, \delta(G)) & \implies \alpha'(G) + \beta'(G) < \min (n, 2\delta(G)) + \beta'(G)\\
+	& \implies 2n < \min (n, 2\delta(G)) + \alpha(G) \\
+	\text{Note, here we have an upperbound for } \alpha(G) \text{ of } n\\	
+	& \implies 2n < \min (n, 2\delta(G)) + n\\
+	& \implies n < \min (n, 2 \delta(G))
+\end{align*}
+For any smaller $\alpha(G)$ our left side of the inequality is greater than $n$ and our final statement is vacuously false. Hence, we arrive at a contradiction and $\alpha'(G) \geq \min{, 2 \delta(G)}$ 
 \end{proof}
 
 \noindent \textbf{Problem 4}
@@ -99,7 +108,10 @@ Assume $\alpha'(G) < \min(n, 2 \delta(G))$ and seek contradiction. Immediately w
 If $A$ is a $0, 1$ matrix so that a \textit{line} in A is a row or column and two $1$'s in $A$ are independent if no line contains both of them. Then the max number of pairwise independent $1's$ is equal to the minimum number of lines covering all $1's$ in $A$.
 \end{claim}
 \begin{proof}
-
+Consider a matrix $A$ that is a $m$ by $n$ where the rows of $A$ correspond to the vertices of one partite set and the columns of $A$ correspond to the other partite set. Label the vertices in our rows $v_1$ to $v_m$ and the other partite set $v_{m + 1}$ to $v_n$. Two vertices, $v_i,vj$ are adjacent if $a_{ij} = 1$. Otherwise, if $a_{ij} = 0$, then $v_i$ and $v_j$ are not connected. \\
+The minimum number of lines needed to cover the 1s then is the number of rows and columns so that all the 1s are at some point present. By construction, selecting a row is the same as picking a vertex.
+So we are looking for the minimum vertex cover.
+$2$ pairwise independent $1'$s are two edges that are completely vertex disjoint. The maximum number of these must then be the maximum matching. Thus, we are comparing the min vertex cover with max matching of a bigraph, which must be equal due to the Konig's Theorem.
 \end{proof}
 
 \noindent \textbf{Problem 5}
