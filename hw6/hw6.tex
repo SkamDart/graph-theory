@@ -1,0 +1,89 @@
+% !TeX spellcheck = en_US
+
+% ===============================================
+% MATH 412: Graph Theory         Fall 2017
+% hw_revised.tex
+
+
+
+
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb, enumitem, mathtools}
+
+\newcommand{\R}{\mathbb{R}}  
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}[2]{K_{\floor*{#1} \ceil*{#2}}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\newenvironment{claim}[2][Claim]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
+
+\begin{document}
+\title{Homework 6} 
+\author{Cameron Dart\\ Graph Theory} 
+
+\maketitle
+
+\noindent \textbf{Problem 1}
+See attached sheet for Male and and Female perfect matchings\\ \\
+
+\noindent \textbf{Problem 2}
+\begin{claim}{}
+	All $k-$regular bipartite graphs satisfy Tutte's Condition.\\
+\end{claim}
+\begin{proof}
+Suppose $G$ is a $k-$regular bipartite graph. If $k = 1$, then our bipartite graph is a collection of disjoint paths. For any arbitrary $S \subseteq V(G)$ the number of odd components in $G$ is equal to the number of vertices taken from unique paths in $G$. We do not add any odd components to $G - S$ if we take both vertices contained in a path or leave paths. As a result, $o(G - S) \leq |S|$.
+\begin{lemma}A Let $k \geq 2$. Suppose there are $u,v \in V(G)$ with cut edge $uv$ that lie in different components of $G - uv$.  Let $u \in A$ that is a bipartite subgraph of $G$ and $v \in B$. Every vertex in $A$ has degree $k$ besides $u$ that has degree $k - 1$. This is not possible so we reach a contradiction. Hence, there are no cut edges in any $k-$regular bipartite graphs where $k \geq 2$. 
+\end{lemma}
+Let $k \geq 2$ and $G$ be a connected $k-$regular bipartite graph. By \textit{Lemma A} there cannot be any cut edges in any connected components of $G$.\\
+Note, all components in $G$ are $K_{k,k}$ and have $2k$ vertices.
+Suppose $G$ consists of $n$ components where each component is a $k-$regular bipartite graph. Deleting any number of vertices from $G$ will  
+%Suppose $S \subseteq G$. Since $G$ has no cut edges, removing any set of vertices will not introduce additional components to the resulting graph. Hence, for each component in $G$ we can create at most $1$ odd component. Hen
+\end{proof}
+
+\noindent \textbf{Problem 3}
+\begin{claim}{}
+Suppose $G$ is a $7-$regular connected graph that remains connected after deleting $5$ edges. Then $G$ has a perfect matching.
+\end{claim}
+\begin{proof}
+Let $G'$ be the graph that results from deleting $e_1,e_2,e_3,e_4,e_5$ edges from $G$. Since $G'$ is still connected we know that $G$ did not contain any cut edges. So $o(G) \leq 1$.
+\end{proof}
+
+\noindent \textbf{Problem 4}
+\begin{claim}{}
+There exists a $5-$regular simple connected graph that remains connected after deleting any $2$ edges but does not have a perfect matching.
+\end{claim}
+\begin{proof}
+See attached sheet for drawing.
+\end{proof}
+
+\noindent \textbf{Problem 5}
+\begin{claim}{}
+
+\end{claim}
+\begin{proof}
+
+\end{proof}
+
+\end{document}
