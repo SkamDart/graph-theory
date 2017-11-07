@@ -18,6 +18,16 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\K}[2]{K_{\floor*{#1} \ceil*{#2}}}
+\newcommand{\vg}{V(G)}
+\newcommand{\ceg}{|E(G)|}
+\newcommand{\cvg}{|V(G)|}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
 
 \newenvironment{theorem}[2][Theorem]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
@@ -40,45 +50,25 @@
 		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
 
 \begin{document}
-\title{Homework 6} 
+\title{Notes} 
 \author{Cameron Dart\\ Graph Theory} 
 
 \maketitle
+\begin{definition}{xu-fan}
+	For $x \in V(G)$, $U \subseteq V(G)$, an \textbf{x,u fan} is a set of $x,u$ paths such that each $2$ share only $x$.
+\end{definition}
 
-\noindent \textbf{Problem 1}
-See attached sheet for Male and and Female perfect matchings\\ \\
+\begin{theorem}{4.1.2 Fan Lemma}
+	A graph $G$ is k-connected $\iff$ $|V(G) \leq k + 1$ and $\forall x \in V(G) \, \forall U \subseteq V(G)$ with $|u| \leq k$, $G$ contains an $x,u-$fan of size $k$.
+\end{theorem}
 
-\noindent \textbf{Problem 2}
-\begin{claim}{}
-	All $k-$regular bipartite graphs satisfy Tutte's Condition.
-\end{claim}
 \begin{proof}
-	% Can we use Ha
-Suppose $G$ is a $k-$regular bipartite graph where $k$ is a positive integer. Consider some $S \subseteq V(G)$ with some odd component. 
+	$\implies$ Suppose $G$ is $k-$connected. Let $G'$ be obtained from $G$ by adding a new vertex $y$ adjacent to each vertex in $U$. By expansion lemma, $G'$ is also $k-$connected.\\
+	$\impliedby$ (Contrapositive) If $G$ is not $k-$connected, then $|V(G) \leq k$ or $\exists x \in V(G) $ and $U \subseteq \vg $ with $|U| \geq k$ such that $G$ does not contain a $x,u$-fan of size $k$.\\
+	$\kappa(G) \leq k- 1 \implies \exists S \subseteq \vg $ such that $|S| \subseteq k - 1$ and $G - S$ either has $\leq 1$ vertex or is disconnected.
 \end{proof}
 
-\noindent \textbf{Problem 3}
-\begin{claim}{}
-	Suppose $G$ is a $7-$regular connected graph that remains connected after deleting $5$ edges. Then $G$ has a perfect matching.
-\end{claim}
-\begin{proof}
-%Let $G'$ be the graph that results from deleting $e_1,e_2,e_3,e_4,e_5$ edges from $G$. Since $G'$ is still connected we know that $G$ did not contain any cut edges. So $o(G) \leq 1$. 
-\end{proof}
-
-\noindent \textbf{Problem 4}
-\begin{claim}{}
-There exists a $5-$regular simple connected graph that remains connected after deleting any $2$ edges but does not have a perfect matching.
-\end{claim}
-\begin{proof}
-See attached sheet for drawing.
-\end{proof}
-
-\noindent \textbf{Problem 5}
-\begin{claim}{}
-
-\end{claim}
-\begin{proof}
-
-\end{proof}
-
+\begin{definition}
+	
+\end{definition}
 \end{document}
