@@ -44,41 +44,61 @@
 \author{Cameron Dart\\ Graph Theory} 
 
 \maketitle
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent \textbf{Problem 1}
 \begin{claim}{}
 	If $G$ is a simple graph $G$ with $\Delta(G) = 3$, then $\kappa'(G) = \kappa(G)$
 \end{claim}
-
+\begin{proof}We know from Whitney's Theorem that $\kappa(G) \leq \kappa'(G) \leq \delta(G)$. So we only need to consider 4 cases.\\
+\textit{Case 1:} $G$ is 0-connected. Since $G$ has multiple components $\kappa(G) = \kappa'(G) = 0$.\\
+\textit{Case 2:} Suppose $G$ is 1-connected. $G$ has a separating set $S$ containing a single vertex. Let $u \in S$. Since $d_G(u) \leq \Delta(G) = 3$, $u$ has at most two neighbors in one vertex and one in the other. So if we delete a single edge connected to $u$, $G$ becomes disconnected. Hence, $\kappa'(G) = 1$.\\
+\textit{Case 3:} Suppose $G$ is 2-connected. Separating set $S$ of $G$ has size 2. Same as above, each vertex in $S$ has at least one neighbor in $G$ but $\Delta(G) = 3$ so removing lone edge from each vertex in $S$ results in a disconnected graph. Hence, $\kappa'(G) = 2$.   \\
+\textit{Case 4:} Suppose $G$ is 3-connected. By Whitney's Theorem $3 \leq \kappa'(G) \leq 3$. So the edge connectivity.  \\
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent \textbf{Problem 2}
 \begin{claim}{}
 A simple connected graph $G$ with at least $3$ vertices is $2-$connected if and only if $\forall x,y \in V(G)$ and any $e \in E(G)$. $G$ has an $x,y$ path through $e$.
 \end{claim}
 \begin{proof}
-
+$\implies)$ Suppose $G$ is $2-$connected. Let $G'= G + \{u,v\}$ where $u$ is adjacent to $x,y$ and $v$ is adjacent to the endpoints of $e$. By the expansion lemma, $G'$ is $2-$connected. It follows there are two disjoint paths from $u$ to $v$. One of these paths contains one endpoint of $e$ and $y$ and the path contains $x$ and the other endpoint of $e$. Moreover, when we remove $u,v$ and their edges there still exists a $x,y$ path containing $e$.\\
+$\impliedby)$ Consider the contrapositive. Suppose $G$ is not 2-connected. If $G$ has multiple components, then we can choose any $x,y$ in separate components and any edge in our graph. Obviously, there is no path. Now consider 1-connected $G$. Since $G$ is 1-connected there exists a separating of size 1. $G - S$ where is split into two components $H_1, H_2$. Let $x \in S, y \in V(H_1)$, and $e \in E(H_2)$. There is no xy-path containing e.
 \end{proof}
-
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent \textbf{Problem 3}
 \begin{claim}{}
-A graph $G$ is 2-connected if and only if $\forall u,v \in V(G)$ there is a $u,v$ necklace in $G$.
+A graph $G$ is 2-connected if and only if $\forall u,v \in V(G)$ there is a $u,v-$necklace in $G$.
 \end{claim}
 \begin{proof}
+$\implies$
+\textit{Induction on d(u,v)}\\
+\textit{Base Case: }$d(u,v) = 1$ so any $uv-$path in $G - uv$ combines with $uv$ edge to create a necklace in $G$.\\
+\textit{Inductive Hypothesis: } Assume that for all $1 \leq d(u,v) \leq n - 1$.\\
+\textit{Induction Step: }Let $w \in V(G)$ such that $d(u, w) = d(u,v) - 1$. So by our inductive hypothesis $G$ has a $uw-$necklace.
+If $v$ is contained in this $uw-$ necklace, then all cycles up to $v$ create a necklace.\\
 
+Otherwise, $v$ is not contained in this $uw-$necklace. Since $G$ is 2-connected there exists a uv-path $P$ in $G - wv$ and let $z$ be the last vertex of the $u,w$-necklace. Let $C_i$ be the last cycle containing $z$ in the chain of necklaces. The $uv$ necklace consists of the cycles before $C_i$ in the $uw$-necklace and the remainder of $P$ from $z$ to $v$ that contain $C_{i - 1} \cap C_i$. 
+\\\\$\impliedby$ Suppose for all $u,v \in V(G)$ there exists a uv-necklace containing cycles $C_1, C_2, ..., C_k$ such that $u \in C_1$ and $v \in C_k$. $C_i, C_{i + 1}$ are connected by a single vertex and have edge disjoint paths from each connecting vertex to the next. So by \textbf{Menger's Theorem} $G$ is 2-connected. 
 \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \noindent \textbf{Problem 4}
 \begin{claim}{}
-For $k \geq 2$, a graph G with at least $k + 1$ vertices is $k-$connected if and only if for all subsets $S, T$ of $V (G)$ such that $|T| = 2, |S| = k and T \subseteq S$, there is a cycle in $G$ that contains $T$ and avoids $S - T$.
+For $k \geq 2$, a graph G with at least $k + 1$ vertices is $k-$connected if and only if for all subsets $S, T$ of $V (G)$ such that $|T| = 2, |S| = k$ and $T \subseteq S$, there is a cycle in $G$ that contains $T$ and avoids $S - T$.
 \end{claim}
 \begin{proof}
-
+	% $\implies) $ Suppose $G$ is a graph with at least $k + 1$ vertices and is $k-2$connected.
 \end{proof}
 
 \noindent \textbf{Problem 5}
 \begin{claim}{}
-Let $xy$ be an edge in a digraph $G$.
+Let $xy$ be an edge in a digraph $G$. Then $\kappa(G - xy) \geq \kappa(G) - 1$.
 \end{claim}
 \begin{proof}
+Since every separating set of $G$ is a separating set of $G - xy$, we have $\kappa(G - xy) \leq \kappa(G)$. Equality holds unless $G - xy$ has a separating set $S$ that is smaller than $\kappa(G)$ because it is not necessarily a separating set of $G$.\\
+Note, $G - S$ is strongly connected. So $G - xy - S$ has two subgraphs $G[X],G[Y]$ such that $X \cup Y = V(G)$ and xy is the only edge from $X$ to $Y$. \\
+If $|X| \geq 2$, then $S \cup x$ is a separating set of $G$ and $\kappa(G) \leq \kappa(G - xy) + 1$. A similar argument follows for $|Y| \geq 2$. The remaining case is $|S| = n(G) - 2$. Since we assumed $|S| < \kappa(G)$ we have $|S| = n(G) - 2$ implies $\kappa(G) \geq n(G) - 1$ which only holds when the each ordered pair of distinct vertices is the head/tail for some edge. Thus, $k(G - xy) = n(G) - 2 = \kappa(G) - 1$. 
 
 \end{proof}
 
